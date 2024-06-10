@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">UpTodo</string>
+    <string name="skip_intro">SKIP</string>
+    <string name="back">Back</string>
+    <string name="next">NEXT</string>
+    <string name="get_started">GET STARTED</string>
+    <string name="title_first_ob">Manage your tasks</string>
+    <string name="title_second_ob">Create daily routine</string>
+    <string name="title_third_ob">Orgonaize your tasks</string>
+
+    <string name="description_first_ob">You can easily manage all of your daily \n tasks in DoMe for free</string>
+    <string name="description_second_ob">In Uptodo  you can create your \n personalized routine to stay productive</string>
+    <string name="description_third_ob">You can organize your daily tasks by \n adding your tasks into separate categories</string>
+
+
+</resources>
