@@ -1,16 +1,29 @@
 <resources>
     <string name="app_name">UpTodo</string>
     <string name="skip_intro">SKIP</string>
-    <string name="back">Back</string>
+    <string name="back">BACK</string>
     <string name="next">NEXT</string>
     <string name="get_started">GET STARTED</string>
     <string name="title_first_ob">Manage your tasks</string>
     <string name="title_second_ob">Create daily routine</string>
-    <string name="title_third_ob">Orgonaize your tasks</string>
+    <string name="title_third_ob">Organize your tasks</string>
 
     <string name="description_first_ob">You can easily manage all of your daily \n tasks in DoMe for free</string>
     <string name="description_second_ob">In Uptodo  you can create your \n personalized routine to stay productive</string>
     <string name="description_third_ob">You can organize your daily tasks by \n adding your tasks into separate categories</string>
 
+    <string name="welcome_todo">Welcome to UpTodo</string>
+    <string name="welcome_desc">Please login to your account or create new account to continue</string>
+    <string name="login">LOGIN</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="or">or</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register_with_google">Register with Google</string>
+    <string name="register_with_apple">Register with Apple</string>
+    <string name="already_account">Already have an account? Login</string>
 
 </resources>

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -18,7 +17,6 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -28,11 +26,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.uptodo.MainActivity
@@ -49,6 +45,8 @@ fun OnBoardingScreen(
     navController: NavController,
     context: MainActivity
 ) {
+
+    val scope = rememberCoroutineScope()
 
     val images = listOf(
         R.drawable.img_first_onboarding,
@@ -75,6 +73,17 @@ fun OnBoardingScreen(
             .background(Color.Black),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        TextButton(
+            modifier = Modifier.align(alignment = Alignment.Start),
+            onClick = {
+                if (pagerState.currentPage != 2) {
+                    scope.launch {
+                        pagerState.animateScrollToPage(pagerState.currentPage + 2)
+                    }
+                }
+            }) {
+            Text(text = stringResource(id = R.string.skip_intro), color = Color.DarkGray)
+        }
         HorizontalPager(
             state = pagerState,
             modifier = Modifier
@@ -115,7 +124,8 @@ fun OnBoardingScreen(
             }
         }
         ButtonSection(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier
+                .weight(1f),
             pagerState = pagerState,
             context = context,
             navController = navController
@@ -136,18 +146,19 @@ fun ButtonSection(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .wrapContentHeight(),
-        horizontalArrangement = Arrangement.SpaceAround, verticalAlignment = Alignment.Bottom
+            .wrapContentHeight()
+            .padding(start = 12.dp, end = 12.dp),
+        horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.Bottom
     ) {
         TextButton(onClick = {
             scope.launch {
-                if (pagerState.currentPage != 2) {
-                    pagerState.animateScrollToPage(pagerState.currentPage + 2)
+                if (pagerState.currentPage != 0) {
+                    pagerState.animateScrollToPage(pagerState.currentPage - 1)
                 }
             }
 
         }) {
-            Text(text = stringResource(id = R.string.skip_intro))
+            Text(text = stringResource(id = R.string.back), color = Color.DarkGray)
         }
 
         Button(
@@ -159,7 +170,7 @@ fun ButtonSection(
                     } else {
                         onBoardingIsFinished(context = context)
                         navController.popBackStack()
-                        navController.navigate("home")
+                        navController.navigate("get-started")
                     }
                 }
             }) {
