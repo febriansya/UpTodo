@@ -13,17 +13,20 @@
     <string name="description_third_ob">You can organize your daily tasks by \n adding your tasks into separate categories</string>
 
     <string name="welcome_todo">Welcome to UpTodo</string>
-    <string name="welcome_desc">Please login to your account or create new account to continue</string>
+    <string name="welcome_desc">Please login to your account or create \n new account to continue</string>
     <string name="login">LOGIN</string>
     <string name="create_account">CREATE ACCOUNT</string>
 
     <string name="register">Register</string>
+    <string name="login_lowercase">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="or">or</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="register_with_google">Register with Google</string>
     <string name="register_with_apple">Register with Apple</string>
+    <string name="login_with_google">login with Google</string>
+    <string name="login_with_apple">login with Apple</string>
     <string name="already_account">Already have an account? Login</string>
 
 </resources>

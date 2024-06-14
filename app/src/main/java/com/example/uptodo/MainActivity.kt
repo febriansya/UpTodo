@@ -6,9 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Typography
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,18 +17,19 @@ import com.example.uptodo.screen.onboarding.LoginScreen
 import com.example.uptodo.screen.onboarding.OnBoardingScreen
 import com.example.uptodo.screen.onboarding.RegisterScreen
 import com.example.uptodo.screen.onboarding.SplashScreen
+import com.example.uptodo.ui.theme.UpTodoTheme
+import com.example.uptodo.ui.theme.rememberWindowSizeClass
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MaterialTheme(
-                typography = Typography()
-            ) {
+            val window = rememberWindowSizeClass()
+            UpTodoTheme(window) {
                 val navController = rememberNavController()
                 Scaffold(modifier = Modifier.fillMaxSize()) { padding ->
-                    val padding = padding
+//                    if (AppTheme.orientation == Orientation.Portrait)
                     NavHost(
                         navController = navController,
                         startDestination = "splash",
@@ -54,11 +53,11 @@ class MainActivity : ComponentActivity() {
                         }
 
                         composable("login") {
-                            LoginScreen()
+                            LoginScreen(navController = navController)
                         }
 
                         composable("register") {
-                            RegisterScreen()
+                            RegisterScreen(navController = navController)
                         }
                     }
                 }

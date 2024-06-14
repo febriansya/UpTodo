@@ -17,40 +17,179 @@ val latoFont = FontFamily(
     Font(R.font.lato_light, FontWeight.Light),
 )
 
-
-val Typography = Typography(
-
-    titleLarge = TextStyle(
+val typographySmall = Typography(
+    bodySmall = TextStyle(
         fontFamily = latoFont,
-        fontWeight = FontWeight.Bold,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
+        fontWeight = FontWeight.Normal,
+        fontSize = 11.sp
     ),
-
+    bodyMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 13.sp
+    ),
     bodyLarge = TextStyle(
         fontFamily = latoFont,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
-
-
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
+        fontSize = 12.sp
     ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+    titleLarge = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
+    displaySmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 18.sp
+    ),
+    displayMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp
+    ),
+    displayLarge = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 24.sp
     )
-    */
+)
+
+val typographyCompact = Typography(
+    bodySmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
+    bodyMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 18.sp
+    ),
+    titleLarge = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 21.sp
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 23.sp
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 26.sp
+    ),
+    displaySmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 29.sp
+    ),
+    displayMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 32.sp
+    ),
+    displayLarge = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 35.sp
+    ),
+)
+
+val typographyMedium = Typography(
+    bodySmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 18.sp
+    ),
+    bodyMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp
+    ),
+    titleLarge = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 24.sp
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 27.sp
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 30.sp
+    ),
+    displaySmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 32.sp
+    ),
+    displayMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 35.sp
+    ),
+    displayLarge = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 38.sp
+    ),
+)
+
+val typographyBig = Typography(
+    bodySmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 26.sp
+    ),
+    bodyMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 29.sp
+    ),
+    titleLarge = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 32.sp
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 36.sp
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 39.sp
+    ),
+    displaySmall = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 42.sp
+    ),
+    displayMedium = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 45.sp
+    ),
+    displayLarge = TextStyle(
+        fontFamily = latoFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 50.sp
+    ),
 )
