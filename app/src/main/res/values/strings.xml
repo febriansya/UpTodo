@@ -28,5 +28,11 @@
     <string name="login_with_google">login with Google</string>
     <string name="login_with_apple">login with Apple</string>
     <string name="already_account">Already have an account? Login</string>
+    <string name="not_have_account">Don\'t have an account? Register</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="use_password">User Password</string>
+    <string name="finger_desc">Please hold your finger at the \n fingerprint scanner to verify your \n identity</string>
+
 
 </resources>

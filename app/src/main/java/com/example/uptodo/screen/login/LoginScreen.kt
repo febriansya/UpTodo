@@ -1,9 +1,8 @@
-package com.example.uptodo.screen.onboarding
+package com.example.uptodo.screen.login
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,7 +18,6 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -49,41 +47,70 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.NavController
 import com.example.uptodo.R
+import com.example.uptodo.screen.component.BottomSheetFinger
+import com.example.uptodo.screen.register.LineOrSpacer
 import com.example.uptodo.ui.theme.AppTheme
 import com.example.uptodo.ui.theme.black01
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterScreen(modifier: Modifier = Modifier, navController: NavController) {
+fun LoginScreen(modifier: Modifier = Modifier, navController: NavController) {
 
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
+    var showSheet by remember { mutableStateOf(false) }
 
     val focusManager = LocalFocusManager.current
-    RegisterContentScreen(navController, username, focusManager, password, confirmPassword)
+    LoginContentScreen(
+        navController,
+        username,
+        focusManager,
+        password,
+        confirmPassword,
+        showSheet
+    ) {
+        showSheet = it
+    }
 
 }
 
 
 @Composable
-private fun RegisterContentScreen(
+private fun LoginContentScreen(
     navController: NavController,
     username: String,
     focusManager: FocusManager,
     password: String,
-    confirmPassword: String
+    confirmPassword: String,
+    showSheet: Boolean,
+    setShowSheet: (Boolean) -> Unit = {},
 ) {
     var username1 = username
     var password1 = password
     var confirmPassword1 = confirmPassword
+
     ConstraintLayout(
         modifier = Modifier
             .fillMaxSize()
             .background(black01)
 
     ) {
-        val (btnBack, title, desc, columInput) = createRefs()
+        val (btnBack, title, desc, columInput, sheet) = createRefs()
+
+        if (showSheet) {
+            BottomSheetFinger(modifier = Modifier.constrainAs(
+                sheet
+            ) {
+                bottom.linkTo(parent.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }, onClose = {
+                setShowSheet(false)
+            })
+        }
+
+
+
         IconButton(modifier = Modifier.constrainAs(btnBack) {
             top.linkTo(parent.top, margin = 50.dp)
             start.linkTo(parent.start)
@@ -109,7 +136,7 @@ private fun RegisterContentScreen(
                 .verticalScroll(rememberScrollState())) {
             Spacer(modifier = Modifier.height(AppTheme.dimens.large))
             Text(
-                text = stringResource(id = R.string.register),
+                text = stringResource(id = R.string.login_lowercase),
                 style = MaterialTheme.typography.titleLarge,
                 color = Color.White
             )
@@ -162,7 +189,7 @@ private fun RegisterContentScreen(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = { /*TODO*/ }) {
                 Text(
-                    text = stringResource(id = R.string.register),
+                    text = stringResource(id = R.string.login),
                     modifier = Modifier.padding(12.dp),
                     color = Color.White
                 )
@@ -191,7 +218,9 @@ private fun RegisterContentScreen(
             OutlinedButton(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RectangleShape,
-                onClick = { /*TODO*/ },
+                onClick = {
+                    setShowSheet(true)
+                },
             ) {
                 Row(
                     modifier = Modifier.padding(12.dp),
@@ -203,7 +232,7 @@ private fun RegisterContentScreen(
                         contentDescription = "ic_google"
                     )
                     Spacer(modifier = Modifier.width(5.dp))
-                    Text(text = stringResource(id = R.string.register_with_google))
+                    Text(text = stringResource(id = R.string.login_with_google))
                 }
             }
 
@@ -212,7 +241,9 @@ private fun RegisterContentScreen(
             OutlinedButton(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RectangleShape,
-                onClick = { /*TODO*/ },
+                onClick = {
+
+                },
             ) {
                 Row(
                     modifier = Modifier.padding(12.dp),
@@ -224,31 +255,22 @@ private fun RegisterContentScreen(
                         contentDescription = "ic_apple"
                     )
                     Spacer(modifier = Modifier.width(5.dp))
-                    Text(text = stringResource(id = R.string.register_with_google))
+                    Text(text = stringResource(id = R.string.login_with_apple))
                 }
             }
 
             Spacer(modifier = Modifier.height(46.dp))
 
             TextButton(
-                onClick = { /*TODO*/ }, modifier = Modifier.align(Alignment.CenterHorizontally)
+                onClick = {
+                    navController.navigate("register")
+                }, modifier = Modifier.align(Alignment.CenterHorizontally)
             ) {
-                Text(text = stringResource(id = R.string.already_account), color = Color.White)
+                Text(text = stringResource(id = R.string.not_have_account), color = Color.White)
             }
 
         }
     }
 }
 
-
-@Composable
-fun LineOrSpacer(modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier
-            .padding(2.dp)
-            .height(2.dp)
-            .width(154.dp)
-            .background(Color(0xff979797))
-    )
-}
 

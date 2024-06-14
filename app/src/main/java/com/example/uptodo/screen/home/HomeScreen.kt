@@ -1,4 +1,4 @@
-package com.example.uptodo.screen.onboarding
+package com.example.uptodo.screen.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Scaffold

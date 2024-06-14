@@ -1,8 +1,9 @@
-package com.example.uptodo.screen.onboarding
+package com.example.uptodo.screen.register
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -18,6 +19,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -50,21 +52,22 @@ import com.example.uptodo.R
 import com.example.uptodo.ui.theme.AppTheme
 import com.example.uptodo.ui.theme.black01
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier, navController: NavController) {
+fun RegisterScreen(modifier: Modifier = Modifier, navController: NavController) {
 
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
 
     val focusManager = LocalFocusManager.current
-    LoginContentScreen(navController, username, focusManager, password, confirmPassword)
+    RegisterContentScreen(navController, username, focusManager, password, confirmPassword)
 
 }
 
 
 @Composable
-private fun LoginContentScreen(
+private fun RegisterContentScreen(
     navController: NavController,
     username: String,
     focusManager: FocusManager,
@@ -106,7 +109,7 @@ private fun LoginContentScreen(
                 .verticalScroll(rememberScrollState())) {
             Spacer(modifier = Modifier.height(AppTheme.dimens.large))
             Text(
-                text = stringResource(id = R.string.login_lowercase),
+                text = stringResource(id = R.string.register),
                 style = MaterialTheme.typography.titleLarge,
                 color = Color.White
             )
@@ -159,7 +162,7 @@ private fun LoginContentScreen(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = { /*TODO*/ }) {
                 Text(
-                    text = stringResource(id = R.string.login),
+                    text = stringResource(id = R.string.register),
                     modifier = Modifier.padding(12.dp),
                     color = Color.White
                 )
@@ -200,7 +203,7 @@ private fun LoginContentScreen(
                         contentDescription = "ic_google"
                     )
                     Spacer(modifier = Modifier.width(5.dp))
-                    Text(text = stringResource(id = R.string.login_with_google))
+                    Text(text = stringResource(id = R.string.register_with_google))
                 }
             }
 
@@ -221,7 +224,7 @@ private fun LoginContentScreen(
                         contentDescription = "ic_apple"
                     )
                     Spacer(modifier = Modifier.width(5.dp))
-                    Text(text = stringResource(id = R.string.login_with_apple))
+                    Text(text = stringResource(id = R.string.register_with_google))
                 }
             }
 
@@ -237,4 +240,15 @@ private fun LoginContentScreen(
     }
 }
 
+
+@Composable
+fun LineOrSpacer(modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .padding(2.dp)
+            .height(2.dp)
+            .width(154.dp)
+            .background(Color(0xff979797))
+    )
+}
 

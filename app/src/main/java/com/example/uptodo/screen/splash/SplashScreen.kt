@@ -1,4 +1,4 @@
-package com.example.uptodo.screen.onboarding
+package com.example.uptodo.screen.splash
 
 import android.content.Context
 import androidx.compose.foundation.background

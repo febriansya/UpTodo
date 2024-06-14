@@ -11,12 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.uptodo.screen.home.HomeScreen
+import com.example.uptodo.screen.login.LoginScreen
 import com.example.uptodo.screen.onboarding.GetStartedScreen
-import com.example.uptodo.screen.onboarding.HomeScreen
-import com.example.uptodo.screen.onboarding.LoginScreen
 import com.example.uptodo.screen.onboarding.OnBoardingScreen
-import com.example.uptodo.screen.onboarding.RegisterScreen
-import com.example.uptodo.screen.onboarding.SplashScreen
+import com.example.uptodo.screen.register.RegisterScreen
+import com.example.uptodo.screen.splash.SplashScreen
 import com.example.uptodo.ui.theme.UpTodoTheme
 import com.example.uptodo.ui.theme.rememberWindowSizeClass
 
